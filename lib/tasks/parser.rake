@@ -4,7 +4,7 @@ namespace :parser do
     require 'open-uri'
     require 'nokogiri'
     require 'byebug'
-
+    Post.all.delete_all
     source = 'https://news.ycombinator.com/'
     parsed_data = []
     error = []
@@ -23,17 +23,10 @@ namespace :parser do
 	    end
     end
 
-    # parsed_data = []
-    # data = Nokogiri::HTML(open(source.to_s))
-    # data.css('.athing').map do |news|
-    # 	url   = news.at_css("a.storylink")['href']
-    # 	author = news.at_css(".sitestr").text unless news.at_css(".sitestr").nil?
-    # 	title = news.at_css("a.storylink").text
-    # 	parsed_data << {url: url, title: title, author: author }
-    # end
-    # p parsed_data
-    # p parsed_data.count
-
+    parsed_data.map do |post|
+		  Post.create(title: post[:title], author: post[:author], url: post[:url])
+		  p post[:title] + ' was created'
+		end
 
   end
 end
