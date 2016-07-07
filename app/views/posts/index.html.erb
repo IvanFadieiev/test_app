@@ -1,4 +1,19 @@
-<% @posts.each do |post| %>
-	<%= link_to post.title, post.url %><br>
-	<%= post.author %><br>
-<% end %>
+<table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<div class='post_index_page' >
+			<% @posts.each  do |post| %>
+		    <tr>
+		      <td><%= link_to post.title, post.url %></td>
+		      <td><%= post.author %></td>
+		    </tr>
+			<% end %>
+		</div>
+  </tbody>
+</table>
+<%= will_paginate @posts %>

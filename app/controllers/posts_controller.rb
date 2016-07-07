@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		@posts = Post.paginate(page: params[:page], per_page: 30)
+		@count = Post.count
 	end
 
 	def create
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
 	end
 
 	private
+
 	def method_name
 		params.require(:post).permit(:title, :author, :url)
 	end
