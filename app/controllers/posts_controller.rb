@@ -1,9 +1,10 @@
+# posts controler
 class PostsController < ApplicationController
-	def index
-		@posts = Post.paginate(page: params[:page], per_page: 30)
-	end
+  def index
+    @posts = Post.paginate(page: params[:page], per_page: 30)
+  end
 
-	def show
+  def show
     @post = Post.find(params[:id])
     render json: @post, only: [:title, :url, :author]
   end
@@ -14,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def delete_all
-  	Post.delete_all
-  	redirect_to :back
+    Post.delete_all
+    redirect_to :back
   end
 end

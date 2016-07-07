@@ -10,7 +10,7 @@
   	<div class='post_index_page' >
 			<% @posts.each  do |post| %>
 		    <tr>
-		      <td><%= link_to post.title, post_path(post) %></td>
+		      <td><%= link_to post.title, api_v1_post_path(post) %></td>
           <td><%= link_to 'Show Source', post.url %></td>
 		      <td><%= post.author %></td>
 		    </tr>
