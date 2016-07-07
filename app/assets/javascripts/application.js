@@ -26,4 +26,9 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('.result').load('/rake_task .rake_task_page')
 	});
+
+	$('.delete_button').click(function(event){
+		event.preventDefault();
+		$('.result').load('/all_posts .post_index_page')
+	});
 });

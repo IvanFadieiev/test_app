@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Link to News</th>
       <th>Author</th>
     </tr>
   </thead>
@@ -9,7 +10,8 @@
   	<div class='post_index_page' >
 			<% @posts.each  do |post| %>
 		    <tr>
-		      <td><%= link_to post.title, post.url %></td>
+		      <td><%= link_to post.title, post_path(post) %></td>
+          <td><%= link_to 'Show Source', post.url %></td>
 		      <td><%= post.author %></td>
 		    </tr>
 			<% end %>
